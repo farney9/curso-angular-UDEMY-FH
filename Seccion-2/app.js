@@ -1,45 +1,35 @@
 "use strict";
 (() => {
-    //  Clses en typescript
-    // class Avenger {
-    //     nombre: string;
-    //     equipo: string;
-    //     nombreReal: string;
-    //     puedePelear: boolean;
-    //     peleasGanadas: number;
-    //     constructor(
-    //         nombre: string, 
-    //         equipo: string, 
-    //         nombreReal?: string,
-    //         puedePelear: boolean,
-    //         peleasGanadas: number) {
-    //         this.nombre = nombre;
-    //         this.equipo = equipo;
-    //         this.nombreReal = nombreReal;
-    //         this.puedePelear = puedePelear;
-    //         this.peleasGanadas = peleasGanadas;
-    //     }
-    // }
-    /*
-    Con esta nueva forma de declarar las propiedades de una clase
-    e inicializar sus valores se permite disminuir el elcódigo
-    incluso se puede indicar si las propiedades de clase son p¿ublicas
-    (accesibles dentro y fuera de la clase) oprivadas.
-    */
-    class Avenger {
-        // nombre: string;
-        // equipo: string;
-        // nombreReal: string;
-        // puedePelear: boolean;
-        // peleasGanadas: number;
-        constructor(nomre, equipo, nombreReal, puedePelear = true, peleasGanadas = 0) {
-            this.nomre = nomre;
-            this.equipo = equipo;
-            this.nombreReal = nombreReal;
-            this.puedePelear = puedePelear;
-            this.peleasGanadas = peleasGanadas;
+    // Uso de Let y Const
+    const nombre = 'Ricardo Tapia';
+    const edad = 23;
+    const PERSONAJE = { nombre, edad };
+    const batman = {
+        nombre: 'Bruno Díaz',
+        artesMarciales: ['Karate', 'Aikido', 'Wing Chun', 'Jiu-Jitsu']
+    };
+    console.log(batman);
+    // Convertir esta funcion a una funcion de flecha
+    const resultadoDoble = (a, b) => (a + b) * 2;
+    // Función con parametros obligatorios, opcionales y por defecto
+    // donde NOMBRE = obligatorio
+    //       PODER  = opcional
+    //       ARMA   = por defecto = 'arco'
+    function getAvenger(nombre, poder, arma = 'arco') {
+        if (poder) {
+            console.log(`${nombre} tiene el poder de: ${poder} y un arma: ${arma}`);
+        }
+        else {
+            console.log(`${nombre} tiene un arma: ${arma}`);
         }
     }
-    const antman = new Avenger('Antman', 'Capi');
-    console.log(antman);
+    ;
+    getAvenger('Ojo de Alcón');
+    // Cree una clase que permita manejar la siguiente estructura
+    // La clase se debe de llamar rectangulo,
+    // debe de tener dos propiedades:
+    //   * base
+    //   * altura
+    // También un método que calcule el área  =  base * altura,
+    // ese método debe de retornar un numero.
 })();
