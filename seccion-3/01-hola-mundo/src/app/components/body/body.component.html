@@ -1,0 +1,25 @@
+<div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+        <h3 class="my-3">*ngIf</h3>
+        <hr>
+        <div class="card hvr-float-shadow">
+            <div *ngIf="mostrar">
+                <img src="http://lorempixel.com/400/200/nature" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{frase.autor}}</h5>
+                    <blockquote class="blockquote text-center">
+                        <p class="card-text mb-0 font-italic">{{frase.mensaje}}</p>
+                    </blockquote>
+                </div>
+            </div>
+            <button (click)="mostrar = !mostrar" class="btn btn-outline-info btn-block">Ver/Ocultar</button>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <h3 class="my-3">*ngFor</h3>
+        <hr>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let p of personajes; let i = index" class="list-group-item">{{i+1}} - {{p}}</li>
+        </ul>
+    </div>
+</div>
