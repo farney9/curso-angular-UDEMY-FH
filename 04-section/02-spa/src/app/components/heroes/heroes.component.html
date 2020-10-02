@@ -1,1 +1,15 @@
-<p>heroes works!</p>
+<h1>Héroes de Marvel y DC</h1>
+<hr class="my-3">
+
+<div class="card-columns animate__animated animate__zoomIn">
+    <div class="card hvr-grow-shadow"  *ngFor="let heroe of heroes, let i = index">
+        <img src="{{heroe.img}}" class="card-img-top" alt="{{heroe.nombre}}">
+        <div class="card-body">
+            <h5 class="card-title">{{heroe.nombre}}</h5>
+            <p class="card-text">{{heroe.bio}}</p>
+            <p class="card-text"><small class="text-muted">Fecha de aparición: {{heroe.aparicion}}</small></p>
+            <a (click)="verHeroe(i)" class="btn btn-outline-primary btn-block">Ver más ...</a>
+            <!-- <a [routerLink]="[ '/heroe', i ]" class="btn btn-outline-primary btn-block">Ver más link ...</a> -->
+        </div>
+    </div>
+</div>
