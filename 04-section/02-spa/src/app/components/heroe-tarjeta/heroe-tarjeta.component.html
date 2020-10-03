@@ -1,0 +1,9 @@
+<div class="card hvr-grow-shadow">
+    <img src="{{heroe.img}}" class="card-img-top" alt="{{heroe.nombre}}">
+    <div class="card-body">
+        <h5 class="card-title">{{heroe.nombre}}</h5>
+        <p class="card-text">{{heroe.bio}}</p>
+        <p class="card-text"><small class="text-muted">Fecha de aparición: {{heroe.aparicion}}</small></p>
+        <a (click)="verHeroe()" class="btn btn-outline-primary btn-block">Ver más ...</a>
+    </div>
+</div>

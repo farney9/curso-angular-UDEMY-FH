@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -69,10 +70,36 @@ export class HeroesService {
         return this.heroes[idx];
     }
 
+    
+  buscarHeroe(termino:string):Heroe[]{
+    
+    let heroesArr:Heroe[] = [];
+    
+    termino = termino.toLowerCase();
+
+    // for (let heroe of this.heroes)
+    for (let i = 0; i < this.heroes.length; i++) {
+        
+        let heroe = this.heroes[i];
+
+        let nombre = heroe.nombre.toLowerCase();
+
+        if (nombre.indexOf(termino) >= 0) {
+            heroe.idx = i;
+            heroesArr.push(heroe)
+        }
+    }
+
+    return heroesArr;
+
+  }
+
+
 }
 
 
 export interface Heroe {
+    idx?:number;
     nombre: string;
     bio: string;
     img: string;

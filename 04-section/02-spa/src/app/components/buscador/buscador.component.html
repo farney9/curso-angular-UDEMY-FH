@@ -1,0 +1,22 @@
+<h1>Buscando: <small>{{termino}}</small></h1>
+<hr class="my-3">
+<div class="row animate__animated animate__fadeInUp" *ngIf="heroes.length == 0">
+    <div class="col-12">
+        <div class="alert alert-info" role="alert">
+            Ups!! no pudimos encontrar: <strong>{{termino}}</strong>, intenta con otro término.
+        </div>
+    </div>
+</div>
+<div class="card-columns animate__animated animate__zoomIn">
+    <app-heroe-tarjeta [heroe]='foo' [index]='foo.idx' *ngFor="let foo of heroes"></app-heroe-tarjeta>
+    <!-- <div class="card hvr-grow-shadow" *ngFor="let heroe of heroes, let i = index">
+        <img src="{{heroe.img}}" class="card-img-top" alt="{{heroe.nombre}}">
+        <div class="card-body">
+            <h5 class="card-title">{{heroe.nombre}}</h5>
+            <p class="card-text">{{heroe.bio}}</p>
+            <p class="card-text"><small class="text-muted">Fecha de aparición: {{heroe.aparicion}}</small></p>
+            <a (click)="verHeroe(i)" class="btn btn-outline-primary btn-block">Ver más ...</a>
+        </div>
+    </div> -->
+</div>
+
