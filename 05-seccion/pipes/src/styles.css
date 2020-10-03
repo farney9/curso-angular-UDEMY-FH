@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~hover.css/css/hover-min.css';
+@import '~animate.css/animate.css';
+
+.rounded-top-left-1 {
+    border-top-left-radius: 1rem;
+}
+.rounded-top-right-1 {
+    border-top-right-radius: 1rem;
+}
+.rounded-bottom-left-1 {
+    border-bottom-left-radius: 1rem;
+}
+.rounded-bottom-right-1 {
+    border-bottom-right-radius: 1rem;
+}
+
+.rounded-top-left-3 {
+    border-top-left-radius: 3rem;
+}
+.rounded-top-right-3 {
+    border-top-right-radius: 3rem;
+}
+.rounded-bottom-left-3 {
+    border-bottom-left-radius: 3rem;
+}
+.rounded-bottom-right-3 {
+    border-bottom-right-radius: 3rem;
+}
+
