@@ -11,6 +11,11 @@
     </thead>
     <tbody>
       <tr>
+        <td>{{nombre2}}</td>
+        <td><strong>capitalizado</strong></td>
+        <td>{{nombre2 | capitalizado}}</td>
+      </tr>
+      <tr>
         <td>{{nombre}}</td>
         <td><strong>uppercase</strong></td>
         <td>{{nombre | uppercase}}</td>
@@ -37,20 +42,112 @@
       </tr>
       <tr>
         <td>{{PI}}</td>
-        <td><strong>number:'3.0-0'</strong></td>
+        <td><strong>number:'3.0-0' (3 posiciones enteras)</strong></td>
         <td>{{PI | number:'3.0-0'}}</td>
       </tr>
       <tr>
         <td>{{PI}}</td>
-        <td><strong>number:'.0-2'</strong></td>
+        <td><strong>number:'.0-2' (2 posiciones decimales)</strong></td>
         <td>{{PI | number:'.0-2'}}</td>
+      </tr>
+      <tr>
+        <td>{{porcentaje}}</td>
+        <td><strong>porcentaje</strong></td>
+        <td>{{porcentaje | percent}}</td>
+      </tr>
+      <tr>
+        <td>{{porcentaje}}</td>
+        <td><strong>percent:'2.2-2' <br> (2 posiciones enteras y 2 decimales)</strong></td>
+        <td>{{porcentaje | percent:'2.2-2'}}</td>
+      </tr>
+      <tr>
+        <td>{{salario}}</td>
+        <td><strong>currency:'COP$ ':'symbol':'.0-0' <br> (0 posiciones decimales)</strong></td>
+        <td>{{salario | currency:'COP$ ':'symbol':'.0-0'}}</td>
+      </tr>
+      <tr>
+        <td>{{valorPromesa}}</td>
+        <td><strong>async</strong></td>
+        <td>{{valorPromesa | async}}</td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td><strong>date</strong></td>
+        <td>{{fecha | date}}</td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td><strong>date:'medium'</strong></td>
+        <td>{{fecha | date:'medium'}}</td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td><strong>date:'short'</strong></td>
+        <td>{{fecha | date:'short'}}</td>
+      </tr>
+
+      <tr>
+        <td>{{fecha}}</td>
+        <td><strong>date:'fullDate'</strong></td>
+        <td>{{fecha | date:'fullDate'}}</td>
+      </tr>
+
+      <tr>
+        <td>{{fecha}}</td>
+        <td><strong>date:'MMMM - dd'</strong></td>
+        <td>{{fecha | date:'MMMM - dd'}}
+        </td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td><strong>date</strong>
+          <br>
+          <div>
+            <a (click)="idioma='es'" class="btn btn-outline-primary mr-1">Español</a>
+            <a (click)="idioma='en'" class="btn btn-outline-secondary mr-1">Inglés</a>
+            <a (click)="idioma='fr'" class="btn btn-outline-success mr-1">Francés</a>
+          </div>         
+        </td>
+        <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td><strong>contrasenia: {{activar}}</strong>
+          <br>
+          <div>
+            <a (click)="activar = !activar" class="btn btn-outline-danger">Activar / Desactivar</a>
+          </div> 
+        </td>
+        <td>{{nombre | contrasenia: activar | capitalizado}}
+        </td>
       </tr>
     </tbody>
   </table>
 
-  <h4>Slice</h4>
+  <h4>Slice <small>slice:1:4</small></h4>
   <hr>
-  <ul>
-    <li *ngFor="let item of numbersArr | slice:5:20">{{item}}</li>
+  <ul class="list-group">
+    <li *ngFor="let item of personajes | slice:1:4" class="list-group-item list-group-item-action">{{item}}</li>
   </ul>
+  <h4 class="my-3">Json</h4>
+  <hr>
+  <div class="row mb-5">
+    <div class="col-12">
+      <pre>{{heroe | json}}</pre>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-12">
+      <h4>Dom seguro</h4>
+      <hr>
+      <iframe class="mx-auto" 
+              width="560" 
+              height="315" 
+              [src]="videoUrl | domseguro" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>      
+    </div>
+  </div>
 </div>
