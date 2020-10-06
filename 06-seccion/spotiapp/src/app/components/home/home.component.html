@@ -1,9 +1,5 @@
-<!-- Consultar paises mediante http get desde //restcountries.eu/rest/v2/lang/es -->
+<app-loading *ngIf="isLoading"></app-loading>
 
-<!-- <h4>Paises de habla hispana</h4>
-<ul>
-    <li *ngFor="let pais of paises">{{pais.name}} - Población: {{pais.population | number}}</li>
-</ul> -->
 
 <app-tarjeta [items]="newTracks"></app-tarjeta>
 
