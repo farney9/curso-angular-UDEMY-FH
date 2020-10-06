@@ -70,7 +70,6 @@ export class HeroesService {
         return this.heroes[idx];
     }
 
-    
   buscarHeroe(termino:string):Heroe[]{
     
     let heroesArr:Heroe[] = [];
@@ -93,10 +92,7 @@ export class HeroesService {
     return heroesArr;
 
   }
-
-
 }
-
 
 export interface Heroe {
     idx?:number;
