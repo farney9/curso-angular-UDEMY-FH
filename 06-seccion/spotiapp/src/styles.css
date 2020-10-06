@@ -7,8 +7,7 @@ body {
 }
 
 hr {
-    border-color: white;
-    height: 10px;
+    border-color: white !important;
 }
 
 .card-title,
