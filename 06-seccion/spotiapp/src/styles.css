@@ -10,6 +10,10 @@ hr {
     border-color: white !important;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .card-title,
 .card-text {
     color: black;
