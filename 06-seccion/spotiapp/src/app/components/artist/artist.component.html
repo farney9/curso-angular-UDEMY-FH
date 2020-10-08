@@ -1,6 +1,6 @@
-<app-loading *ngIf="isLoading"></app-loading>
+<app-loading *ngIf="isLoadingArtist"></app-loading>
 <div class="animate__animated animate__rubberBand">
-    <div  *ngIf="!isLoading" class="jumbotron jumbotron-fluid jumbotron-image" style="background-image: url({{artista.images|noimage}});">
+    <div  *ngIf="!isLoadingArtist" class="jumbotron jumbotron-fluid jumbotron-image" style="background-image: url({{artista.images|noimage}});">
         <div class="container content">
             <h1 class="display-4">{{artista.name}}</h1>
             <p class="lead">
@@ -9,8 +9,40 @@
                 </a>
             </p>
             <div class="float-md-right">
-                <a routerLink="/search" class="btn btn-outline-danger">Regresar</a>
+                <a routerLink="/search" class="btn btn-success">Regresar</a>
             </div>
         </div>
     </div>
 </div>
+<h2>Populares</h2>
+<div class="table-responsive">
+    <table class="table table-borderless table-hover table-dark-far table-sm">
+        <!-- <thead>
+          <tr>
+            <th scope="col">Preview</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Cación</th>
+            <th scope="col">Album</th>
+            <th scope="col">Duración</th>
+          </tr>
+        </thead> -->
+        <tbody>
+          <tr *ngFor="let track of topTracks">
+            <td><audio [src]="track.preview_url" controls controlslist="nodownload"></audio>
+            </td>
+            <td><img [src]="track.album.images[2].url"  alt=""></td>
+            <td>{{track.name}}</td>
+            <td>{{track.album.name}}</td>
+            <td>{{track.duration_ms | date:'mm:ss'}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+    <div class="col hvr-fade">Preview</div>
+    <div class="col">img</div>
+    <div class="col">Album</div>
+    <div class="col float-right">cancion</div>
+    <div class="col float-right">duración</div>
+</div> -->

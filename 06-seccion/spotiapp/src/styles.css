@@ -14,6 +14,14 @@ hr {
     cursor: pointer;
 }
 
+audio::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
+
 .jumbotron {
     padding: 0.1em 0.1em;
     height: 50vh;
@@ -43,7 +51,38 @@ hr {
     -o-background-size: cover;
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
 }
-  
+
+.table-dark-far {
+    color: #fff !important;
+    background-color: black;
+  }
+
+  .table-dark-far.table-hover tbody tr:hover {
+    color: #fff !important;
+  background-color: #343a40;
+  }
+
+.table-dark-far,
+.table-dark-far > th,
+.table-dark-far > td {
+  background-color: black;
+}
+
+.table-dark-far th,
+.table-dark-far td,
+.table-dark-far thead th,
+.table-dark-far tbody + tbody {
+  border-color: black;
+}
+
+.table-hover .table-dark-far:hover {
+  background-color: black;
+}
+
+.table-hover .table-dark-far:hover > td,
+.table-hover .table-dark-far:hover > th {
+  background-color: black;
+}
 
 .card-title,
 .card-text {
