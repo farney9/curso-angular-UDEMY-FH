@@ -1,6 +1,16 @@
-<div class="jumbotron jumbotron-fluid jumbotron-image" style="background-image: url({{artista.images|noimage}});">
-    <div class="container">
-        <h1 class="display-4">{{artista.name}}</h1>
-        <p class="lead"><a class="text-white" [href]="artista.external_urls.spotify">Informaciónn del artista</a></p>
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="animate__animated animate__rubberBand">
+    <div  *ngIf="!isLoading" class="jumbotron jumbotron-fluid jumbotron-image" style="background-image: url({{artista.images|noimage}});">
+        <div class="container content">
+            <h1 class="display-4">{{artista.name}}</h1>
+            <p class="lead">
+                <a class="text-white font-weight-bold" [href]="artista.external_urls.spotify" target="_blank">
+                    Informaciónn del artista
+                </a>
+            </p>
+            <div class="float-md-right">
+                <a routerLink="/search" class="btn btn-outline-danger">Regresar</a>
+            </div>
+        </div>
     </div>
 </div>

@@ -10,11 +10,15 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 })
 export class ArtistComponent {
 
+  isLoading: boolean;
+
   artista: any = {};
 
   constructor(private router: ActivatedRoute,
               private spotify: SpotifyService) { 
 
+    this.isLoading = true;
+    
     this.router.params.subscribe( parametros =>{
 
       this.router.params.subscribe(params =>{
@@ -25,10 +29,14 @@ export class ArtistComponent {
   }
 
   getArtista( id: string){
+
+    this.isLoading = true;
+
     this.spotify.getArtist( id )
                 .subscribe( artista =>{
                   console.log(artista);
                   this.artista = artista;
+                  this.isLoading = false;
                 })
   }
 }
