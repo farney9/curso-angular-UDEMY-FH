@@ -9,13 +9,15 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 
 export class HomeComponent {
 
-  isLoading: boolean;
-
-  newTracks: any[] = [];
+  isLoading : boolean;
+  newTracks : any[] = [];
+  errorOuput: boolean;
+  mensajeError: string;
 
   constructor(private spotify: SpotifyService) {
 
     this.isLoading = true;
+    this.errorOuput = false;
 
     setTimeout(() => {
       
@@ -24,7 +26,16 @@ export class HomeComponent {
             // console.log(data);
             this.newTracks = data;
             this.isLoading = false;
-          })
+          }, ( errorServicio ) => {
+              
+            this.isLoading = false;
+            this.errorOuput = errorServicio
+            this.mensajeError =  errorServicio.error.error.message;
+
+            console.log(this.mensajeError);
+            
+              
+          });
     }, 1000);
 
   }

@@ -6,8 +6,13 @@ body {
     color: white !important;
 }
 
+.alert-danger hr {
+    border-top-color: #f1b0b7;
+    /* border-color: #dc3545; */
+}
+
 hr {
-    border-color: white !important;
+    border-color: white;
 }
 
 .cursor-pointer {
