@@ -13,6 +13,10 @@ export class DeseosService {
     const lista1 = new Lista('Reunir gemas del infinito');
     const lista2 = new Lista('Seleccionar héroes a desaparecer');
     this.listas.push(lista1, lista2);
-
+  }
+  
+  crearLista( titulo: string){
+    const nuevaLista = new Lista(titulo);
+    this.listas.push(nuevaLista);
   }
 }
