@@ -6,8 +6,8 @@ export class Lista {
 
     id: number;
     title: string;
-    CreatedIn: Date;
-    finishedIn: Date;
+    CreatedOn: Date;
+    finishedOn: Date;
     isCompleted: boolean;
     items: ListaItems[];
 
@@ -15,7 +15,7 @@ export class Lista {
     constructor ( caption: string) {
 
         this.title = caption;
-        this.CreatedIn = new Date();
+        this.CreatedOn = new Date();
         this.isCompleted = false;
         this.items = [];
         this.id = new Date().getTime();
