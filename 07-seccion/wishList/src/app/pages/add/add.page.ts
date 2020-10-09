@@ -35,6 +35,31 @@ export class AddPage implements OnInit {
     return;
   }
 
+  changeCheck( item : ListaItems) {
+    
+    // console.log(item);
+
+    const pendings = this.myList.items
+                                  .filter( itemData => !itemData.isCompleted)
+                                  .length;
+
+    console.log({pendings});
+
+    if (pendings !== 0) {
+      this.myList.finishedOn = null;
+      this.myList.isCompleted = false;
+    } else {
+      this.myList.finishedOn = new Date();
+      this.myList.isCompleted = true;
+    }
+
+    this.deseosService.saveStorage();
+    console.log(this.deseosService.listas);
+    
+
+    
+  }
+
   ngOnInit() {
   }
 
