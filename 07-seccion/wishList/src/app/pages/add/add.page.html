@@ -3,30 +3,29 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Nombre de la lista</ion-title>
+    <ion-title>{{myList.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 <ion-list>
   <ion-item>
-    <ion-label position="floating">Nuevo item</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-label position="floating" color="primary">Agregar nuevo item</ion-label>
+    <ion-input type="text" 
+               [(ngModel)]="itemName"
+               (keyup.enter)="addItem()"></ion-input>
   </ion-item>
 </ion-list>
 <ion-list>
   <ion-list-header>
     <ion-label>Lista de chequeo</ion-label>
-    <ion-button>See All</ion-button>
+    <!-- <ion-button>See All</ion-button> -->
   </ion-list-header>
 </ion-list>
 <ion-list>
-  <!-- <ion-item *ngFor="let entry of form"> -->
-    <ion-item>
-    <!-- <ion-label>{{entry.val}}</ion-label> -->
-    <ion-label>{{}</ion-label>
-    <ion-checkbox slot="end"></ion-checkbox>
-    <!-- <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox> -->
+  <ion-item *ngFor="let item of myList.items">
+    <ion-label>{{item.description}}</ion-label>
+    <ion-checkbox slot="end" [(ngModel)]="item.isCompleted"></ion-checkbox>
   </ion-item>
 </ion-list>
 </ion-content>

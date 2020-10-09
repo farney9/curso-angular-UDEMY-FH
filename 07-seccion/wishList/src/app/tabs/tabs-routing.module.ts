@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: () => import('../pages/tab2/tab2.module').then(m => m.Tab2PageModule)
       },
       // {
-      //   path: 'add',
+      //   path: 'add/:listId',
       //   loadChildren: () => import('../pages/add/add.module').then(m => m.AddPageModule)
       // },
       {

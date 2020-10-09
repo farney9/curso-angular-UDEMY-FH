@@ -21,6 +21,14 @@ export class DeseosService {
     const nuevaLista = new Lista(titulo);
     this.listas.push(nuevaLista);
     this.saveStorage();
+
+    return nuevaLista.id;
+  }
+
+  getList( id: string | number){
+    // obligo que el id se convierta en un número
+    id = Number(id);
+    return this.listas.find( listaData =>  listaData.id === id);
   }
 
   saveStorage(){
