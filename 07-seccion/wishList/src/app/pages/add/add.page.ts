@@ -55,9 +55,12 @@ export class AddPage implements OnInit {
 
     this.deseosService.saveStorage();
     console.log(this.deseosService.listas);
-    
+  }
 
-    
+  delete(idx: number) {
+    this.myList.items.splice(idx, 1);
+    this.deseosService.saveStorage();
+
   }
 
   ngOnInit() {
