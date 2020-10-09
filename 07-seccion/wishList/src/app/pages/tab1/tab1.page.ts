@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Lista } from 'src/app/models/lista.model';
 import { DeseosService } from '../../services/deseos.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { DeseosService } from '../../services/deseos.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+
 
   constructor( public deseosService: DeseosService,
                private router: Router,
@@ -38,7 +40,7 @@ export class Tab1Page {
         {
           text: 'Agregar',
           handler: ( data ) => {
-            console.log(data);
+            // console.log(data);
             if ( data.titulo.length === 0) {
               return;
             }
@@ -52,6 +54,11 @@ export class Tab1Page {
     });
 
     await alert.present();
+  }
+
+  goToSelectedList( list: Lista) {
+    this.router.navigateByUrl(`/tabs/tab1/add/${list.id}`);
+    
   }
 
 }

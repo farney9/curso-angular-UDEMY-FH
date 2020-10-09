@@ -15,8 +15,8 @@
     </ion-item>
   </ion-list>
   <ion-list>
-    <ion-list-header>
-      <ion-label>Lista de chequeo</ion-label>
+    <ion-list-header *ngIf="myList.items.length > 0">
+      <ion-label>Tareas por completar</ion-label>
       <!-- <ion-button>See All</ion-button> -->
     </ion-list-header>
   </ion-list>
