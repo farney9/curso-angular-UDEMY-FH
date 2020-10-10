@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { Lista } from 'src/app/models/lista.model';
 import { DeseosService } from '../../services/deseos.service';
 
 @Component({
@@ -56,9 +55,5 @@ export class Tab1Page {
     await alert.present();
   }
 
-  goToSelectedList( list: Lista) {
-    this.router.navigateByUrl(`/tabs/tab1/add/${list.id}`);
-    
-  }
 
 }

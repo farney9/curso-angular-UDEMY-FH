@@ -6,7 +6,13 @@ const routes: Routes = [
   {
     path: '',
     component: Tab2Page,
-  }
+  },
+  {
+    path: 'add/:listId',
+    loadChildren: () => import('../add/add.module').then(m => m.AddPageModule)
+    // loadChildren: () => import('../../pages/add/add.module').then(m => m.AddPageModule)
+  },
+
 ];
 
 @NgModule({
