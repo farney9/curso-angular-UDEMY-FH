@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Lista } from 'src/app/models/lista.model';
 import { DeseosService } from 'src/app/services/deseos.service';
@@ -8,8 +8,9 @@ import { DeseosService } from 'src/app/services/deseos.service';
   templateUrl: './listas.component.html',
   styleUrls: ['./listas.component.scss'],
 })
-export class ListasComponent implements OnInit {
-
+export class ListasComponent {
+  
+  // listas: Lista[] = [];
   @Input() isListTerminados = true;
 
   constructor( public deseosService: DeseosService,
@@ -22,9 +23,14 @@ export class ListasComponent implements OnInit {
     } else {
       this.router.navigateByUrl(`/tabs/tab1/add/${list.id}`);
     }
-  }
-               
 
-  ngOnInit() {}
+    console.log(this.deseosService.listas);
+    
+  }
+
+  // deleteList(lista: Lista) {
+  //   this.deseosService.deleteList(lista.id);
+  // }
+               
 
 }
