@@ -54,6 +54,43 @@ export class Tab1Page {
 
     await alert.present();
   }
+  async editList( idx: number){
+
+    const alert = await this.alertController.create({
+      header: 'this.deseosService.listas.id',
+      inputs: [
+        {
+          name: 'titulo',
+          type: 'text',
+          placeholder: 'Ingrese el nombre de la lista'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar');
+          }
+        },
+        {
+          text: 'Agregar',
+          handler: ( data ) => {
+            // console.log(data);
+            if ( data.titulo.length === 0) {
+              return;
+            }
+              const listId = this.deseosService.crearLista( data.titulo );
+              // tengo que crear la lista
+              this.router.navigateByUrl(`/tabs/tab1/add/${listId}`);
+            
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
 
 }

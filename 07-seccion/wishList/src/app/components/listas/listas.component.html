@@ -1,6 +1,6 @@
 <ion-list>
   
-  <ion-item-sliding *ngFor="let lista of deseosService.listas" 
+  <ion-item-sliding *ngFor="let lista of deseosService.listas | filtroCompletado:isListTerminados" 
                     class="animate__animated animate__fadeInRight"
                     >
     <ion-item detail
@@ -11,6 +11,9 @@
     <ion-item-options side="start">
       <ion-item-option (click)="deseosService.deleteList(lista.id)" color="danger">
         <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-item-option>
+      <ion-item-option color="primary">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-item-option>
     </ion-item-options>
   </ion-item-sliding>
