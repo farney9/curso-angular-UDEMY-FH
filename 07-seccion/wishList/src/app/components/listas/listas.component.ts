@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController, IonItemSliding, IonList } from '@ionic/angular';
 import { Lista } from 'src/app/models/lista.model';
 import { DeseosService } from 'src/app/services/deseos.service';
 
@@ -11,10 +12,12 @@ import { DeseosService } from 'src/app/services/deseos.service';
 export class ListasComponent {
   
   // listas: Lista[] = [];
+  @ViewChild('slidingItems ') slidingItems: IonItemSliding;
   @Input() isListTerminados = true;
 
   constructor( public deseosService: DeseosService,
-               private router: Router) {}
+               private router: Router,
+               private alertController: AlertController) {}
 
   goToSelectedList( list: Lista) {
 
@@ -28,9 +31,41 @@ export class ListasComponent {
     
   }
 
-  // deleteList(lista: Lista) {
-  //   this.deseosService.deleteList(lista.id);
-  // }
-               
+  async goToEditList( lista: Lista){
 
+    const alert = await this.alertController.create({
+      header: 'Editar lista',
+      inputs: [
+        {
+          name: 'titulo',
+          type: 'text',
+          placeholder: 'Ingrese el nombre de la lista',
+          value: lista.title
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancelar');
+          }
+        },
+        {
+          text: 'Save',
+          handler: ( data ) => {
+            console.log(data);
+            if ( data.titulo.length === 0) {
+              return;
+            }
+            lista.title = data.titulo;
+            this.deseosService.saveStorage();
+            this.slidingItems.closeOpened();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 }
