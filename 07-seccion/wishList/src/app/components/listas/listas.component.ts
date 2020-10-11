@@ -11,8 +11,7 @@ import { DeseosService } from 'src/app/services/deseos.service';
 })
 export class ListasComponent {
   
-  // listas: Lista[] = [];
-  @ViewChild('slidingItems ') slidingItems: IonItemSliding;
+  @ViewChild('slidingItems') slidingItems: IonItemSliding;
   @Input() isListTerminados = true;
 
   constructor( public deseosService: DeseosService,
@@ -48,19 +47,20 @@ export class ListasComponent {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            console.log('Cancelar');
+            this.slidingItems.closeOpened();
+            // console.log('Cancelar');
           }
         },
         {
           text: 'Save',
           handler: ( data ) => {
-            console.log(data);
             if ( data.titulo.length === 0) {
               return;
             }
             lista.title = data.titulo;
             this.deseosService.saveStorage();
             this.slidingItems.closeOpened();
+            // console.log(data);
           }
         }
       ]
