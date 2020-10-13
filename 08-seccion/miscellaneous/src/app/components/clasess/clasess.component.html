@@ -1,0 +1,29 @@
+<div [ngClass]="alerta" class="alert alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="btn-group mr-2" role="group" aria-label="Basic example">
+    <button (click)="alerta = 'alert-info'" class="btn btn-outline-primary mr-2" type="button">Info</button>
+    <button (click)="alerta = 'alert-success'" class="btn btn-outline-success" type="button">Success</button>
+</div>
+
+<div class="my-3">
+    <h3 [ngClass]="{'text-danger': propiedades}"> Hola Mundo</h3>
+</div>
+<div class="my-3">
+    <h3> Proceso asíncrono</h3>
+    <button
+        (click)="ejecutar()" 
+        class="btn btn-outline-primary" 
+        type="button"
+        [disabled]="loading">
+            <i  [ngClass]="{'fa-save':!loading, 'fa-spinner fa-spin': loading}"
+                class="fas ">
+            </i> 
+        <span *ngIf="!loading"> Guardar cambios</span>
+        <span *ngIf="loading"> Espere por favor...</span>
+    </button>
+</div>
