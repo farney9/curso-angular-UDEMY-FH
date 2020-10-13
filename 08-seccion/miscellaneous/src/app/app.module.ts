@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { CssComponent } from './components/css/css.component';
 import { ClasessComponent } from './components/clasess/clasess.component';
+import { CambioCssDirective } from './directives/cambio-css.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ClasessComponent } from './components/clasess/clasess.component';
     NavbarComponent,
     NgStyleComponent,
     CssComponent,
-    ClasessComponent
+    ClasessComponent,
+    CambioCssDirective
   ],
   imports: [
     BrowserModule,
