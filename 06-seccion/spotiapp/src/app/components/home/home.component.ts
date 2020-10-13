@@ -33,8 +33,6 @@ export class HomeComponent {
             this.mensajeError =  errorServicio.error.error.message;
 
             console.log(this.mensajeError);
-            
-              
           });
     }, 1000);
 
