@@ -9,10 +9,12 @@
     <button (click)="alerta = 'alert-info'" class="btn btn-outline-primary mr-2" type="button">Info</button>
     <button (click)="alerta = 'alert-success'" class="btn btn-outline-success" type="button">Success</button>
 </div>
-
+<hr>
 <div class="my-3">
-    <h3 [ngClass]="{'text-danger': propiedades}"> Hola Mundo</h3>
+    <h4>Uso del [ngClass]</h4>
+    <h4 [ngClass]="{'text-danger': propiedades}"> Hola Mundo</h4>
 </div>
+<hr>
 <div class="my-3">
     <h3> Proceso asíncrono</h3>
     <button

@@ -11,7 +11,7 @@ export class UserComponent implements OnInit {
 
   constructor( private router: ActivatedRoute) {
     this.router.params.subscribe( parametros => {
-      console.log('RUTA PADRE', parametros);
+      // console.log('RUTA PADRE', parametros);
     })
    }
 
