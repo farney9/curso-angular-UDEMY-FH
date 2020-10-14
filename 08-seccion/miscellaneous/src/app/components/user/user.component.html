@@ -1,1 +1,8 @@
-<p>user works!</p>
+<div class="row">
+    <div class="col-12">
+        <button type="button" class="mr-2 btn btn-outline-primary" routerLinkActive="active" [routerLink]="['new']"><i class="fas fa-plus"></i> New user</button>
+        <button type="button" class="mr-2 btn btn-outline-warning" routerLinkActive="active" [routerLink]="['edit']"><i class="fas fa-pen"></i> Edit</button>
+        <button type="button" class="mr-2 btn btn-outline-info" routerLinkActive="active" [routerLink]="['details']"><i class="fas fa-list"></i> Details</button>
+    </div>
+</div>
+<router-outlet></router-outlet>
