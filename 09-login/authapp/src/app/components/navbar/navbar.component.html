@@ -18,12 +18,12 @@
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/precios">Precios</a>
             </li>
-            <li class="nav-item" routerLinkActive="active">
+            <li *ngIf="auth.user$ | async as user" class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/protegida">Protegida</a>
             </li>
         </ul>
         <span class="navbar-text">
-            <button class="btn btn-outline-primary" type="button">Login</button>
-          </span>        
+            <app-auth-button></app-auth-button>            
+        </span>
     </div>
 </nav>
