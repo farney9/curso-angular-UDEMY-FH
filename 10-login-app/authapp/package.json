@@ -21,6 +21,7 @@
     "@angular/router": "~10.1.2",
     "@auth0/auth0-angular": "^1.0.0",
     "@fortawesome/fontawesome-free": "^5.15.1",
+    "@sweetalert2/theme-dark": "^4.0.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.5.3",
     "hover.css": "^2.3.2",
@@ -28,6 +29,7 @@
     "mdbootstrap": "^4.19.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.6.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
