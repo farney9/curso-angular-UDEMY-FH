@@ -5,7 +5,7 @@
                     <strong>Sign in</strong>
                 </h5>
                 <div class="card-body px-lg-5 pt-0">
-                    <form #signInForm="ngForm" class="text-center" style="color: #757575;" action="#!">
+                    <form #signInForm="ngForm" class="text-center needs-validation" style="color: #757575;" action="#!">
                         <div class="md-form">
                             <input
                             #email="ngModel"
@@ -15,15 +15,20 @@
                             id="materialLoginFormEmail" 
                             class="form-control"
                             required
+                            [ngClass]="[ email.invalid && (email.dirty || email.touched) ? 'is-invalid': '', email.valid && email.touched ? 'is-valid': 'is-invalid']"
                             email>
                             <label for="materialLoginFormEmail">E-mail</label>
                             <div *ngIf="email.invalid && (email.dirty || email.touched)">
                                 <small *ngIf="email.errors.required"
-                                    class="text-danger animate__animated animate__fadeInUp">
-                                    Please provide a valid email.
-                                </small>
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        Email is required.
+                                    </small>
+                                    <small *ngIf="email.errors.email"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid email address.
+                                    </small>
+                                </div>
                             </div>
-                        </div>
                         <div class="md-form">
                             <input 
                             #password="ngModel"
@@ -59,7 +64,13 @@
                                 <a href="">Forgot password?</a>
                             </div>
                         </div>
-                        <button (click)="onSubmit(signInForm)" class="btn btn-info btn-block my-4 rounded-pill" type="submit">Sign in</button>
+                        <button
+                        [disabled]="signInForm.invalid" 
+                        (click)="logIn(signInForm)" 
+                        class="btn btn-info btn-block my-4 rounded-pill" 
+                        type="submit">
+                        Sign in
+                    </button>
                         <p>Not a member? <a routerLink="/registro">Register</a></p>
                         <p>or sign in with:</p>
                         <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>

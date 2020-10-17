@@ -5,14 +5,22 @@
                 <strong>Sign up</strong>
             </h5>
             <div class="card-body px-lg-5 pt-0">
-                <form #signUpForm="ngForm" class="text-center" style="color: #757575;">
-                    <div>
+                <form #signUpForm="ngForm" class="text-center needs-validation" style="color: #757575;">
+                    <div [hidden]="signUpForm.submitted">
                         <div class="form-row">
                             <div class="col">
                                 <div class="md-form">
-                                    <input #firtsName="ngModel" [(ngModel)]="user.firtsName" name="firtsName"
-                                        type="text" class="form-control" required minlength="2"
-                                        id="materialRegisterFormFirstName">
+                                    <input 
+                                    #firtsName="ngModel" 
+                                    [(ngModel)]="user.firtsName" 
+                                    name="firtsName"
+                                    type="text" 
+                                    class="form-control" 
+                                    required 
+                                    minlength="2"
+                                    
+                                    [ngClass]="[ firtsName.invalid && (firtsName.dirty || firtsName.touched) ? 'is-invalid' : '',  firtsName.valid ? 'is-valid': 'is-invalid' ]"
+                                    id="materialRegisterFormFirstName">
                                     <label for="materialRegisterFormFirstName">First name</label>
 
                                     <div *ngIf="firtsName.invalid && (firtsName.dirty || firtsName.touched)">
@@ -46,19 +54,39 @@
                             </div>
                         </div>
                         <div class="md-form mt-0">
-                            <input #email="ngModel" [(ngModel)]="user.email" name="email" type="email"
-                                class="form-control" required email id="materialRegisterFormEmail">
+                            <input
+                                email
+                                #email="ngModel"
+                                [(ngModel)]="user.email"
+                                name="email"
+                                type="email"
+                                class="form-control"
+                                required
+                                id="materialRegisterFormEmail"
+                                [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched) }"
+                                >
                             <label for="materialRegisterFormEmail">E-mail</label>
                             <div *ngIf="email.invalid && (email.dirty || email.touched)">
-                                <small *ngIf="email.errors.required"
+                            <small *ngIf="email.errors.required"
                                     class="text-danger animate__animated animate__fadeInUp">
-                                    Please provide a valid email.
+                                    Email is required.
+                                </small>
+                                <small *ngIf="email.errors.email"
+                                    class="text-danger animate__animated animate__fadeInUp">
+                                    Please provide a valid email address.
                                 </small>
                             </div>
                         </div>
                         <div class="md-form">
-                            <input #password="ngModel" [(ngModel)]="user.password" name="password" type="password"
-                                class="form-control" required minlength="6" id="materialRegisterFormPassword">
+                            <input 
+                            #password="ngModel" 
+                            [(ngModel)]="user.password" 
+                            name="password" 
+                            type="password"
+                            class="form-control" 
+                            required 
+                            minlength="6" 
+                            id="materialRegisterFormPassword">
                             <label for="materialRegisterFormPassword">Password</label>
                             <div *ngIf="password.invalid && (password.dirty || password.touched)">
                                 <small *ngIf="password.errors.required"
@@ -76,9 +104,18 @@
                             <label class="custom-control-label" for="defaultLoginFormRemember">Remember
                                 me</label>
                         </div>
-                        <button (click)="onSubmit(signUpForm)"
-                            class="btn btn-info btn-rounded btn-block my-4 rounded-pill" type="submit">Register
+                        <button 
+                            [disabled]="signUpForm.invalid"
+                            (click)="onSubmit(signUpForm)"
+                            class="btn btn-info btn-rounded btn-block my-4 rounded-pill" 
+                            type="submit">Register
                         </button>
+                        <small 
+                            *ngIf="signUpForm.submitted"
+                            class="text-danger animate__animated animate__fadeInUp">
+                            You've submitted your {{firtsName.value}}
+                        </small>
+
                         <p>or sign up with:</p>
                         <a type="button" class="btn-floating btn-fb btn-sm"><i
                                 class="fab fa-facebook-f light-blue-text"></i></a>
