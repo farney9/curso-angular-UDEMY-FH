@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="card animate__animated animate__flipInY">
+            <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Sign up</strong>
+            </h5>
+            <div class="card-body px-lg-5 pt-0">
+                <form #signUpForm="ngForm" class="text-center" style="color: #757575;">
+                    <div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <input #firtsName="ngModel" [(ngModel)]="user.firtsName" name="firtsName"
+                                        type="text" class="form-control" required minlength="2"
+                                        id="materialRegisterFormFirstName">
+                                    <label for="materialRegisterFormFirstName">First name</label>
+
+                                    <div *ngIf="firtsName.invalid && (firtsName.dirty || firtsName.touched)">
+                                        <small *ngIf="firtsName.errors.required"
+                                            class="text-danger animate__animated animate__fadeInUp">
+                                            Please provide a valid name.
+                                        </small>
+                                        <small *ngIf="firtsName.errors.minlength"
+                                            class="text-danger animate__animated animate__fadeInUp">
+                                            Name must be at least 2 characters long.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="md-form">
+                                    <input #lastName="ngModel" [(ngModel)]="user.lastName" name="lastName" type="email"
+                                        class="form-control" required minlength="2" id="materialRegisterFormLastName">
+                                    <label for="materialRegisterFormLastName">Last name</label>
+                                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                        <small *ngIf="lastName.errors.required"
+                                            class="text-danger animate__animated animate__fadeInUp">
+                                            Please provide a valid lastName.
+                                        </small>
+                                        <small *ngIf="lastName.errors.minlength"
+                                            class="text-danger animate__animated animate__fadeInUp">
+                                            LastName must be at least 2 characters long.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-form mt-0">
+                            <input #email="ngModel" [(ngModel)]="user.email" name="email" type="email"
+                                class="form-control" required email id="materialRegisterFormEmail">
+                            <label for="materialRegisterFormEmail">E-mail</label>
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <small *ngIf="email.errors.required"
+                                    class="text-danger animate__animated animate__fadeInUp">
+                                    Please provide a valid email.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="md-form">
+                            <input #password="ngModel" [(ngModel)]="user.password" name="password" type="password"
+                                class="form-control" required minlength="6" id="materialRegisterFormPassword">
+                            <label for="materialRegisterFormPassword">Password</label>
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                                <small *ngIf="password.errors.required"
+                                    class="text-danger animate__animated animate__fadeInUp">
+                                    Please provide a valid password.
+                                </small>
+                                <small *ngIf="password.errors.minlength"
+                                    class="text-danger animate__animated animate__fadeInUp">
+                                    password must be at least 6 characters long.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                            <label class="custom-control-label" for="defaultLoginFormRemember">Remember
+                                me</label>
+                        </div>
+                        <button (click)="onSubmit(signUpForm)"
+                            class="btn btn-info btn-rounded btn-block my-4 rounded-pill" type="submit">Register
+                        </button>
+                        <p>or sign up with:</p>
+                        <a type="button" class="btn-floating btn-fb btn-sm"><i
+                                class="fab fa-facebook-f light-blue-text"></i></a>
+                        <a type="button" class="btn-floating btn-tw btn-sm"><i
+                                class="fab fa-twitter light-blue-text"></i></a>
+                        <a type="button" class="btn-floating btn-li btn-sm"><i
+                                class="fab fa-linkedin-in light-blue-text"></i></a>
+                        <a type="button" class="btn-floating btn-git btn-sm"><i
+                                class="fab fa-github light-blue-text"></i></a>
+                        <p>¿Ya tienes cuenta? / <a routerLink="/login">Ingresar</a></p>
+                        <hr>
+                        <p>By clicking <em>Sign up</em> you agree to <a href="" target="_blank"> our terms of
+                                service</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
