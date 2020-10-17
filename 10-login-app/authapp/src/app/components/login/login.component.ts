@@ -13,13 +13,17 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  user: UserModel;
+  user: UserModel = new UserModel();
+  rememberMe = false;
 
   constructor( private auth: AuthService,
                private router: Router) { }
 
   ngOnInit() {
-    this.user = new UserModel();
+    if (localStorage.getItem('email')) {
+      this.user.email = localStorage.getItem('email');
+      this.rememberMe = true;
+    }
   }
 
   logIn(form: NgForm){
@@ -39,6 +43,11 @@ export class LoginComponent implements OnInit {
         console.log(resp);
         form.reset();
         Swal.close()
+
+        if (this.rememberMe) {
+          localStorage.setItem('email', this.user.email);
+        }
+
         this.router.navigateByUrl('/home');
 
       }, (err) => {

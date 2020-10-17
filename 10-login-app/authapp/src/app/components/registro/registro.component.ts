@@ -14,6 +14,8 @@ import Swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
 
   user: UserModel;
+  rememberMe = false;
+
 
   constructor( private auth: AuthService,
               private router: Router) { }
@@ -41,6 +43,10 @@ export class RegistroComponent implements OnInit {
       .subscribe(resp => {
         console.log(resp);
         Swal.close()
+        if (this.rememberMe) {
+          localStorage.setItem('email', this.user.email);
+        }
+
         this.router.navigateByUrl('/home');
         
       }, (err) => {
