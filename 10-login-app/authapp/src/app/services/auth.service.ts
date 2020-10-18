@@ -12,6 +12,7 @@ export class AuthService {
   private url = 'https://identitytoolkit.googleapis.com/v1/accounts:';
   private apiKey = 'AIzaSyAs3H7mZMsGgmEmmrji1Qi00NHlK3ciXiY';
   userToken: string;
+  islogin: boolean
 
   // crear nuevos usuarios
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
@@ -24,7 +25,10 @@ export class AuthService {
   }
 
   logOut(){
-
+    localStorage.removeItem('token');
+    // localStorage.removeItem('email');
+    localStorage.removeItem('ExpireIn');
+    this.islogin= false;
   }
 
   logIn(user: UserModel){
@@ -42,6 +46,7 @@ export class AuthService {
         // console.log('Entró en mapa de rxjs');
         
         this.saveToken(resp['idToken']);
+        this.islogin= true;
         return resp;
       })
     );
@@ -71,6 +76,10 @@ export class AuthService {
   private saveToken(idToken: string){
     this.userToken = idToken;
     localStorage.setItem('token', idToken);
+
+    let today = new Date();
+    today.setSeconds(3600);
+    localStorage.setItem('ExpireIn', today.getTime().toString());
   }
 
   loadToken(){
@@ -85,7 +94,21 @@ export class AuthService {
 
   isAuthenticated(): boolean {
 
-    return this.userToken.length > 2;
+    this.userToken.length < 2 ?  false: null;
+    const expira = Number(localStorage.getItem('ExpireIn'));
+    const expireDate = new Date();
+    expireDate.setTime(expira);
+
+    if (expireDate > new Date()) {
+    
+      this.islogin= true;
+
+      return true
+    } else {
+      this.islogin= false;
+
+      return false;
+    }
   }
 
 }

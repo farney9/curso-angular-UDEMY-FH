@@ -12,20 +12,25 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item" routerLinkActive="active">
+            <li *ngIf="auth.islogin" class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/home">Home</a>
             </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/registro">registro</a>
-            </li>
             <!-- <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/protegida">Protegida</a>
+                <a class="nav-link" routerLink="/registro">registro</a>
             </li> -->
         </ul>
-        <!-- <span class="navbar-text">
-            <button class="btn btn-outline-primary" type="button">
+        <span *ngIf="auth.islogin; else loggedIn" class="navbar-text">
+            <button
+            (click)="exit()" class="btn btn-outline-primary rounded-pill" type="button">
+            Log Out
+        </button>
+        </span>
+        <ng-template #loggedIn>
+            <span class="navbar-text">
+            <button routerLink="/login" class="btn btn-outline-primary rounded-pill" type="button">
                 Log In
               </button>
-        </span> -->
+            </span>
+        </ng-template>
     </div>
 </nav>

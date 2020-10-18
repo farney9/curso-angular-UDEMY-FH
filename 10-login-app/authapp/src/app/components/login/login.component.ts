@@ -41,12 +41,9 @@ export class LoginComponent implements OnInit {
     this.auth.logIn(this.user)
       .subscribe( resp => {
         console.log(resp);
-        form.reset();
         Swal.close()
-
-        if (this.rememberMe) {
-          localStorage.setItem('email', this.user.email);
-        }
+        
+        this.rememberMe ? localStorage.setItem('email', this.user.email): null;
 
         this.router.navigateByUrl('/home');
 

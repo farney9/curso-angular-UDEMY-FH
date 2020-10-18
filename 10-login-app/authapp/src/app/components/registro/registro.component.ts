@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent implements OnInit {
 
-  user: UserModel;
+  user: UserModel = new UserModel();
   rememberMe = false;
 
 
@@ -21,7 +21,11 @@ export class RegistroComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.user = new UserModel();
+    if (localStorage.getItem('email')) {
+      this.user.email = localStorage.getItem('email');
+      this.rememberMe = true;
+    }
+
   }
 
   onSubmit(form: NgForm){
@@ -43,9 +47,9 @@ export class RegistroComponent implements OnInit {
       .subscribe(resp => {
         console.log(resp);
         Swal.close()
-        if (this.rememberMe) {
-          localStorage.setItem('email', this.user.email);
-        }
+
+        this.rememberMe ? localStorage.setItem('email', this.user.email): null;
+
 
         this.router.navigateByUrl('/home');
         
