@@ -15,9 +15,12 @@
             <li *ngIf="auth.islogin" class="nav-item" routerLinkActive="active">
                 <a class="nav-link" routerLink="/home">Home</a>
             </li>
-            <!-- <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/registro">registro</a>
-            </li> -->
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/template">Template</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/reactive">Reactive</a>
+            </li>
         </ul>
         <span *ngIf="auth.islogin; else loggedIn" class="navbar-text">
             <button

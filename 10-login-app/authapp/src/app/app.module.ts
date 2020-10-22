@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { FormTemplateComponent } from './pages/form-template/form-template.component';
+import { FormReactiveComponent } from './pages/form-reactive/form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { RegistroComponent } from './components/registro/registro.component';
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    FormTemplateComponent,
+    FormReactiveComponent
   ],
   imports: [
     BrowserModule,
