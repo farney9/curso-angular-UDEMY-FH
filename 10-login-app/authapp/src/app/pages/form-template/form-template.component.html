@@ -6,95 +6,145 @@
             </h5>
             <div class="card-body px-lg-5 pt-0">
                 <form #templateForm="ngForm" autocomplete="off" (ngSubmit)="guardar(templateForm)" class="text-center needs-validation" style="color: #757575;">
-                    <div>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="md-form">
-                                    <input 
-                                    #firtsName="ngModel" 
-                                    [ngModel] = "user.name"
-                                    name="firtsName"
-                                    type="text" 
-                                    class="form-control" 
-                                    required 
-                                    minlength="2"
-                                    [ngClass]="[ firtsName.invalid && (firtsName.dirty || firtsName.touched) ? 'is-invalid' : '',  firtsName.valid ? 'is-valid': '' ]"
-                                    id="materialRegisterFormFirstName">
-                                    <label for="materialRegisterFormFirstName">First name</label>
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input 
+                                #firtsName="ngModel" 
+                                [ngModel] = "user.name"
+                                name="firtsName"
+                                type="text" 
+                                class="form-control" 
+                                required 
+                                minlength="2"
+                                [ngClass]="[ firtsName.invalid && (firtsName.dirty || firtsName.touched) ? 'is-invalid' : '',  firtsName.valid ? 'is-valid': '' ]"
+                                id="materialRegisterFormFirstName">
+                                <label for="materialRegisterFormFirstName">First name</label>
 
-                                    <div *ngIf="firtsName.invalid && (firtsName.dirty || firtsName.touched)">
-                                        <small *ngIf="firtsName.errors.required"
-                                            class="text-danger animate__animated animate__fadeInUp">
-                                            Please provide a valid name.
-                                        </small>
-                                        <small *ngIf="firtsName.errors.minlength"
-                                            class="form-text text-danger animate__animated animate__fadeInUp">
-                                            Name must be at least 2 characters long.
-                                        </small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="md-form">
-                                    <input 
-                                    #lastName="ngModel" 
-                                    [ngModel]="user.lastName" 
-                                    name="lastName" 
-                                    type="text"
-                                    class="form-control" 
-                                    required 
-                                    minlength="5"
-                                    [ngClass]="[ lastName.invalid && (lastName.dirty || lastName.touched) ? 'is-invalid' : '',  lastName.valid ? 'is-valid': '']"
-                                    id="materialRegisterFormLastName">
-                                    <label for="materialRegisterFormLastName">Last name</label>
-                                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-                                        <small *ngIf="lastName.errors.required"
-                                            class="form-text text-danger animate__animated animate__fadeInUp">
-                                            Please provide a valid lastName.
-                                        </small>
-                                        <small *ngIf="lastName.errors.minlength"
-                                            class="text-danger animate__animated animate__fadeInUp">
-                                            LastName must be at least 5 characters long.
-                                        </small>
-                                    </div>
+                                <div *ngIf="firtsName.invalid && (firtsName.dirty || firtsName.touched)">
+                                    <small *ngIf="firtsName.errors.required"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid name.
+                                    </small>
+                                    <small *ngIf="firtsName.errors.minlength"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Name must be at least 2 characters long.
+                                    </small>
                                 </div>
                             </div>
                         </div>
-                        <div class="md-form mt-0">
-                            <input
-                                email
-                                #email="ngModel"
-                                [ngModel]="user.email"
-                                name="email"
-                                type="email"
-                                class="form-control"
-                                required
-                                id="materialRegisterFormEmail"
-                                [ngClass]="[ email.invalid && (email.dirty || email.touched) ? 'is-invalid' : '',  lastName.valid ? 'is-valid': '']"
-                                >
-                            <label for="materialRegisterFormEmail">E-mail</label>
-                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
-                            <small *ngIf="email.errors.required"
-                                    class="text-danger animate__animated animate__fadeInUp">
-                                    Email is required.
-                                </small>
-                                <small *ngIf="email.errors.email"
-                                    class="form-text text-danger animate__animated animate__fadeInUp">
-                                    Please provide a valid email address.
-                                </small>
+                        <div class="col">
+                            <div class="md-form">
+                                <input 
+                                #lastName="ngModel" 
+                                [ngModel]="user.lastName" 
+                                name="lastName" 
+                                type="text"
+                                class="form-control" 
+                                required 
+                                minlength="5"
+                                [ngClass]="[ lastName.invalid && (lastName.dirty || lastName.touched) ? 'is-invalid' : '',  lastName.valid ? 'is-valid': '']"
+                                id="materialRegisterFormLastName">
+                                <label for="materialRegisterFormLastName">Last name</label>
+                                <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                    <small *ngIf="lastName.errors.required"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid lastName.
+                                    </small>
+                                    <small *ngIf="lastName.errors.minlength"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        LastName must be at least 5 characters long.
+                                    </small>
+                                </div>
                             </div>
                         </div>
-                        <button 
-                            [disabled]="templateForm.invalid"
-                            class="btn btn-info btn-rounded btn-block my-4 rounded-pill" 
-                            type="submit">Save
-                        </button>
-                        <small 
-                            *ngIf="templateForm.submitted"
-                            class="text-danger animate__animated animate__fadeInUp">
-                            You've submitted your form
-                        </small>
                     </div>
+                    <div class="md-form mt-0">
+                        <input
+                            email
+                            #email="ngModel"
+                            [ngModel]="user.email"
+                            name="email"
+                            type="email"
+                            class="form-control"
+                            required
+                            id="materialRegisterFormEmail"
+                            [ngClass]="[ email.invalid && (email.dirty || email.touched) ? 'is-invalid' : '',  lastName.valid ? 'is-valid': '']"
+                            >
+                        <label for="materialRegisterFormEmail">E-mail</label>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <small *ngIf="email.errors.required"
+                                class="text-danger animate__animated animate__fadeInUp">
+                                Email is required.
+                            </small>
+                            <small *ngIf="email.errors.email"
+                                class="form-text text-danger animate__animated animate__fadeInUp">
+                                Please provide a valid email address.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="md-form mt-0">
+                        <select
+                            id="countries" 
+                            #country="ngModel"
+                            class="custom-select md-form colorful-select dropdown-primary"
+                            name="country"
+                            [ngModel]="user.country"
+                            [ngClass]="[ country.invalid && (country.dirty || country.touched) ? 'is-invalid' : '',  country.valid ? 'is-valid': '']"
+                            required
+                            >
+                            <option value="" disabled selected>Select a country</option>
+                            <option 
+                                *ngFor="let country of countries"
+                                [value]="country.name">{{country.name}}
+                            </option>
+                          </select>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input 
+                            type="radio" 
+                            id="male" 
+                            class="custom-control-input"
+                            name="genero" 
+                            [ngModel]="user.gender"
+                            required
+                            #genero="ngModel"
+                            value="M"
+                            [ngClass]="[ genero.invalid && (genero.dirty || genero.touched) ? 'is-invalid' : '',  genero.valid ? 'is-valid': '']"
+
+                            >
+                        <label class="custom-control-label" for="male">Male</label>
+                        <div *ngIf="genero.invalid && (genero.dirty || genero.touched)">
+                            <small *ngIf="genero.errors"
+                                    class="text-danger animate__animated animate__fadeInUp">
+                                    Genere is required.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input 
+                            type="radio" 
+                            id="female" 
+                            class="custom-control-input"
+                            name="genero" 
+                            [ngModel]="user.gender"
+                            required
+                            #genero="ngModel"
+                            value="F"
+                            [ngClass]="[ genero.invalid && (genero.dirty || genero.touched) ? 'is-invalid' : '',  genero.valid ? 'is-valid': '']"
+                            >
+                        <label class="custom-control-label" for="female">Female</label>
+                    </div>
+                    <button 
+                        [disabled]="templateForm.invalid"
+                        class="btn btn-info btn-rounded btn-block my-4 rounded-pill" 
+                        type="submit">Save
+                    </button>
+                    <small 
+                        *ngIf="templateForm.submitted"
+                        class="text-danger animate__animated animate__fadeInUp">
+                        You've submitted your form
+                    </small>
                 </form>
             </div>
         </div>

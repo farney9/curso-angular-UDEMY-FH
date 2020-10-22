@@ -14,10 +14,10 @@ export class CountriesService {
     return this.http.get('https://restcountries.eu/rest/v2/lang/es')
       .pipe(
         map( (resp: any[]) => {
-          return resp.map( pais => {
+          return resp.map( country => {
             return {
-              nombre: pais.name,
-              codigo: pais.alpha3Code 
+              name: country.name,
+              code: country.alpha3Code 
             }
           })
         })

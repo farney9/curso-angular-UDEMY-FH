@@ -12,15 +12,20 @@ export class FormTemplateComponent implements OnInit {
   user = {
     name: 'Farney',
     lastName: 'Jiménez',
-    email: 'farney9@yopmail.com'
+    email: 'farney9@yopmail.com',
+    country: 'Colombia',
+    gender:  'M'
   }
+
+  countries: any[] = [];
+
   constructor(private countryService: CountriesService) { }
 
   ngOnInit(): void {
     this.countryService.getCountries()
         .subscribe(paises => {
-          console.log(paises);
-          
+          this.countries = paises;
+          // console.log(paises);
         })
         
   }
