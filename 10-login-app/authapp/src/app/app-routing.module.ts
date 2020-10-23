@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'template', component: FormTemplateComponent },
   { path: 'reactive', component: FormReactiveComponent },
   { path: 'registro', component: RegistroComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'template'}
+  { path: '**', pathMatch: 'full', redirectTo: 'reactive'}
 ];
 
 @NgModule({

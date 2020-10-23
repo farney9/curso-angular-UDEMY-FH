@@ -11,6 +11,9 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "allowedCommonJsDependencies": [
+            "highlight.js"
+          ],
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/authapp",
@@ -28,7 +31,8 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/mdbootstrap/css/mdb.css",             
-              "node_modules/@sweetalert2/theme-dark/dark.css"             
+              "node_modules/@sweetalert2/theme-dark/dark.css",
+              "node_modules/highlight.js/styles/lightfair.css"             
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import * as $ from 'jquery';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,9 +31,18 @@ import { FormReactiveComponent } from './pages/form-reactive/form-reactive.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule  
+    ReactiveFormsModule,
+    HttpClientModule,
+    HighlightModule  
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        fullLibraryLoader: () => import('highlight.js'),
+      }
+    }    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
