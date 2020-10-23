@@ -77,6 +77,85 @@
                             </small>
                         </div>
                     </div>
+
+                    <div class="form-row" formGroupName="address">
+                        <div class="col">
+                            <div class="md-form">
+                                <input 
+                                formControlName="departamento"
+                                name="departamento"
+                                type="text" 
+                                class="form-control"
+                                [ngClass]="[ departamento.invalid && (departamento.dirty || departamento.touched) ? 'is-invalid' : '',  departamento.valid ? 'is-valid': '' ]"
+                                id="departamento">
+                                <label for="departamento">Departamento</label>
+
+                                <div *ngIf="departamento.invalid && (departamento.dirty || departamento.touched)">
+                                    <small *ngIf="departamento.errors.required"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid name.
+                                    </small>
+                                    <small *ngIf="departamento.errors.minlength"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Name must be at least 2 characters long.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form">
+                                <input 
+                                formControlName="ciudad"
+                                name="ciudad" 
+                                type="text"
+                                class="form-control" 
+                                minlength="2"
+                                [ngClass]="[ ciudad.invalid && (ciudad.dirty || ciudad.touched) ? 'is-invalid' : '',  ciudad.valid ? 'is-valid': '']"
+                                id="ciudad">
+                                <label for="ciudad">Ciudad</label>
+                                <div *ngIf="ciudad.invalid && (lastName.dirty || lastName.touched)">
+                                    <small *ngIf="ciudad.errors.required"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid lastName.
+                                    </small>
+                                    <small *ngIf="ciudad.errors.minlength"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        LastName must be at least 2 characters long.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <table class="table table-striped table-hover table-sm">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Hobbie</th>
+                                    <th scope="col">Delete</th>
+                                  </tr>
+                                </thead>
+                                <tbody formArrayName="hobbies">
+                                  <tr *ngFor="let control of hobbies.controls; let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>
+                                        <input class="form-control" type="text" name="" [formControlName]="i">
+                                    </td>
+                                    <td><button (click)="deleteHobbie(i)" class="text-danger hvr-bounce-in"><i class="fas fa-trash-alt"></i></button>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <button 
+                                type="button" 
+                                class="btn btn-block deep-blue-gradient"
+                                (click)="addHobbie()"><i class="fas fa-plus"></i> Add
+                                </button>
+                                                          
+                        </div>
+
+                    </div>                    
                     <button 
                         [disabled]="templateForm.invalid"
                         class="btn btn-info btn-rounded btn-block my-4 rounded-pill" 
