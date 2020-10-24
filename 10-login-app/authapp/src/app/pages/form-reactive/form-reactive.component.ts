@@ -16,6 +16,7 @@ export class FormReactiveComponent implements OnInit {
                private validator: ValidatorsService) { 
     this.createForm();
     this.uploadDataToForm();
+    this.createListeners();
   }
 
   ngOnInit(): void {
@@ -25,31 +26,37 @@ export class FormReactiveComponent implements OnInit {
     this.form = this.fb.group({
       // definición de un form control
       // ['valorPorDefecto', validadoresSincronos, validadoresAsincronos]
-      name    : ['', 
-                    [
-                      Validators.required, 
-                      Validators.minLength(2)
-                    ]
-                ],
-      lastName: ['', 
-                    [
-                      Validators.required, 
-                      Validators.minLength(5),
-                      this.validator.isJimenez
-                    ]
-                ],
-      email   : ['', 
-                    [
-                      Validators.required, 
-                      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
-                    ],
-                ],
-      address : this.fb.group({
-                departamento: ['', [Validators.required, Validators.minLength(2)] ],
-                ciudad: ['', Validators.required, ]
-      }),
+      name    : ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(5), this.validator.isJimenez]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
+      email   : ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+
+      passwords: this.fb.group(
+        {
+          password: ['', [Validators.required, Validators.minLength(6)]], 
+          passwordComfirm: ['', [Validators.required, Validators.minLength(6)]]
+        } 
+      ),
+      address : this.fb.group(
+        {
+          departamento: ['', [Validators.required, Validators.minLength(2)] ],
+          ciudad: ['', Validators.required, ]
+        }
+      ),
       hobbies : this.fb.array([])
-    });
+    }, { validators: this.validator.MatchPassword}
+    );
+  }
+  
+  createListeners(){
+    this.form.valueChanges.subscribe( valor => {
+      console.log(valor);
+    })
+
+    this.form.statusChanges.subscribe(status => {
+      console.log(status);
+      
+    })
   }
 
   addHobbie(){
@@ -81,6 +88,9 @@ export class FormReactiveComponent implements OnInit {
   get name() { return this.form.get('name'); }
   get lastName() { return this.form.get('lastName'); }
   get email() { return this.form.get('email'); }
+  get username() { return this.form.get('username'); }
+  get password() { return this.form.get('passwords.password'); }
+  get passwordComfirm() { return this.form.get('passwords.passwordComfirm'); }
   get departamento() { return this.form.get('address.departamento'); }
   get ciudad() { return this.form.get('address.ciudad'); }
   get hobbies() { return this.form.get('hobbies') as FormArray; }

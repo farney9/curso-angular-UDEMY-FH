@@ -58,6 +58,7 @@
                     </div>
                     <div class="md-form mt-0">
                         <input
+                            
                             formControlName="email"
                             name="email"
                             type="email"
@@ -77,7 +78,78 @@
                             </small>
                         </div>
                     </div>
+                    <div class="md-form mt-0">
+                        <input
+                            formControlName="username"
+                            name="username"
+                            type="text"
+                            class="form-control"
+                            id="username"
+                            [ngClass]="[ username.invalid && (username.dirty || username.touched) ? 'is-invalid' : '',  username.valid ? 'is-valid': '']"
+                            >
+                        <label for="username">Username</label>
+                        <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <small *ngIf="username.errors.required"
+                                class="text-danger animate__animated animate__fadeInUp">
+                                Username is required.
+                            </small>
+                            <small *ngIf="username.errors"
+                                class="form-text text-danger animate__animated animate__fadeInUp">
+                                Please provide a valid username.
+                            </small>
+                        </div>
+                    </div>                    
+                    <div class="form-row" formGroupName="passwords">
+                        <div class="col">
+                            <div class="md-form">
+                                <input 
+                                formControlName="password"
+                                name="password"
+                                type="password" 
+                                class="form-control" 
+                                [ngClass]="[ password.invalid && (password.dirty || password.touched) ? 'is-invalid' : '',  password.valid ? 'is-valid': '' ]"
+                                id="password">
+                                <label for="password">Password</label>
 
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                                    <small *ngIf="password.errors.required"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid password.
+                                    </small>
+                                    <small *ngIf="password.errors.minlength"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Password must be at least 6 characters long.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form">
+                                <input 
+                                formControlName="passwordComfirm"
+                                name="passwordComfirm" 
+                                type="password"
+                                class="form-control"
+                                [ngClass]="[ passwordComfirm.invalid && (passwordComfirm.dirty || passwordComfirm.touched) ? 'is-invalid' : '',  passwordComfirm.valid ? 'is-valid': '']"
+                                id="passwordComfirm">
+                                <label for="passwordComfirm">Comfirm password</label>
+                                <div *ngIf="passwordComfirm.invalid && (passwordComfirm.dirty || passwordComfirm.touched)">
+                                    <small *ngIf="passwordComfirm.errors.required"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid password comfirm.
+                                    </small>
+                                    <small *ngIf="passwordComfirm.errors.minlength"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Password must be at least 6 characters long.
+                                    </small>
+                                    <small *ngIf="passwordComfirm.errors?.MatchPassword"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        Password not match
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-row" formGroupName="address">
                         <div class="col">
                             <div class="md-form">
