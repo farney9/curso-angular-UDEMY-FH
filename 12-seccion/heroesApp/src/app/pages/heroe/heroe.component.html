@@ -1,0 +1,137 @@
+<h2>Héroe <small> [nombre del héroe] </small></h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <button routerLink="/heroes" class="btn sunny-morning-gradient float-right"><i class="fas fa-chevron-left"></i>
+            <strong> Back to list</strong>
+        </button>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-8 offset-2">
+        <div class="card animate__animated animate__fadeIn">
+            <h5 class="card-header sunny-morning-gradient text-dark text-center py-4">
+                <strong>New hero</strong>
+            </h5>
+            <div class="card-body px-lg-5 pt-0">
+                <form #heroForm="ngForm" (ngSubmit)="guardar(heroForm)"
+                    class="text-center needs-validation" style="color: #757575;">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <input
+                                    [(ngModel)]="hero.id"
+                                    name="FirebaseId" 
+                                    type="text" 
+                                    id="FirebaseId" 
+                                    class="form-control" 
+                                    required 
+                                    disabled>
+                                <label for="FirebaseId">Firebase Id</label>
+                                <div>
+                                    <small class="text-danger animate__animated animate__fadeInUp">
+                                        Email is required.
+                                    </small>
+                                    <small class="text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid email address.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form">
+                                <input
+                                    #name
+                                    [(ngModel)]="hero.name" 
+                                    name="name" 
+                                    type="text" 
+                                    id="name" 
+                                    class="form-control" 
+                                    required
+                                    minlength="2">
+                                <label for="name">Name</label>
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                                    <small *ngIf="name.errors.required"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid name.
+                                    </small>
+                                    <small *ngIf="name.errors.minlength"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        name must be at least 5 characters long.
+                                    </small>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="md-form">
+                                <input
+                                    #power
+                                    [(ngModel)]="hero.power" 
+                                    name="power" 
+                                    type="text" 
+                                    id="power" 
+                                    class="form-control" 
+                                    required
+                                    minlength="2">
+                                <label for="power">Poder</label>
+                                <div *ngIf="power.invalid && (power.dirty || power.touched)">
+                                    <small *ngIf="power.errors.required"
+                                        class="form-text text-danger animate__animated animate__fadeInUp">
+                                        Please provide a valid power.
+                                    </small>
+                                    <small *ngIf="power.errors.minlength"
+                                        class="text-danger animate__animated animate__fadeInUp">
+                                        power must be at least 5 characters long.
+                                    </small>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label>Estado</label>
+                        <div class="col">
+                            <div class="md-form">
+                                <button 
+                                    *ngIf="hero.isAlive"
+                                    (click)="hero.isAlive = false"
+                                    class="btn dusty-grass-gradient text-dark" 
+                                    type="button">
+                                    <i class="fas fa-smile-beam fa-2x"></i>
+                                    Vivo
+                                </button>
+                            </div>
+                            <div class="md-form">
+                                <button
+                                    *ngIf="!hero.isAlive"
+                                    (click)="hero.isAlive = true"   
+                                    class="btn young-passion-gradient text-dark" 
+                                    type="button">
+                                    <i class="fas fa-dizzy fa-2x"></i>
+                                    Muerto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="md-form">
+                        <button
+                            [disabled]="heroForm.invalid"
+                            class="btn sunny-morning-gradient btn-block my-4 rounded-pill text-dark" 
+                            type="submit">
+                            <i class="fas fa-save fa-2x"></i>
+                            SAVE
+                        </button>
+                        <small 
+                            *ngIf="heroForm.submitted"
+                            class="text-danger animate__animated animate__fadeInUp">
+                            You've submitted your form
+                        </small>    
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
