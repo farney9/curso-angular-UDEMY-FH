@@ -39,14 +39,21 @@ export class HeroeComponent implements OnInit {
       console.log('Formulario inválido');
       return;
     }
+    // Swal.showLoading();
     Swal.fire({
       title: 'Wait',
       text: 'Saving data...',
       icon: 'info',
-      timer: 3000,
+      showConfirmButton: false,
+      timer: 1500,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      },      
       allowOutsideClick: false
     });
-    Swal.showLoading();
 
     let peticion: Observable<any>; 
 
@@ -60,8 +67,16 @@ export class HeroeComponent implements OnInit {
       Swal.fire({
         title: this.hero.name,
         text: 'Actualización realizada',
-        icon: 'success'
-        
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2500,
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        },      
+        allowOutsideClick: false        
       })
     })
   }

@@ -17,6 +17,13 @@ export class HeroesService {
     return this.http.get(`${this.url}/heroes/${id}.json`);
   }
 
+  listHeroes(){
+    return this.http.get(`${this.url}/heroes.json`)
+      .pipe(
+        map( this.createheroesArray)
+      );
+  }
+
   createHero( hero: HeroModel){
 
     return this.http.post(`${this.url}/heroes.json`, hero)
@@ -40,12 +47,11 @@ export class HeroesService {
     return this.http.put(`${this.url}/heroes/${hero.id}.json`, heroTemp);
   }
 
-  listHeroes(){
-    return this.http.get(`${this.url}/heroes.json`)
-      .pipe(
-        map( this.createheroesArray)
-      );
+  deleteHero( id: string){
+    return this.http.delete(`${this.url}/heroes/${id}.json`);
   }
+
+
 
   private createheroesArray( heroesObj: object){
     const heroes: HeroModel[] = [];
