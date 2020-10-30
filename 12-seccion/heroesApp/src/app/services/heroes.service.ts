@@ -13,7 +13,11 @@ export class HeroesService {
 
   constructor( private http: HttpClient) { }
 
-  creteHero( hero: HeroModel){
+  getHeroById(id:string){
+    return this.http.get(`${this.url}/heroes/${id}.json`);
+  }
+
+  createHero( hero: HeroModel){
 
     return this.http.post(`${this.url}/heroes.json`, hero)
             .pipe(
@@ -34,5 +38,26 @@ export class HeroesService {
     delete heroTemp.id;
 
     return this.http.put(`${this.url}/heroes/${hero.id}.json`, heroTemp);
+  }
+
+  listHeroes(){
+    return this.http.get(`${this.url}/heroes.json`)
+      .pipe(
+        map( this.createheroesArray)
+      );
+  }
+
+  private createheroesArray( heroesObj: object){
+    const heroes: HeroModel[] = [];
+
+    if (heroesObj === null) { return [];}
+
+    Object.keys(heroesObj).forEach(key => {
+      const hero: HeroModel = heroesObj[key];
+      hero.id = key;
+      heroes.push(hero);
+    });
+    
+    return heroes;
   }
 }
