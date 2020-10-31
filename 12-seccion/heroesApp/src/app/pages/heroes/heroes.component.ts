@@ -15,6 +15,7 @@ export class HeroesComponent implements OnInit {
   heroes: HeroModel[] = [];
   errorMessage: string;
   status: string;
+  isLoading = false;
 
   constructor(private heroesService: HeroesService,
               private route: ActivatedRoute){ 
@@ -22,9 +23,13 @@ export class HeroesComponent implements OnInit {
  }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.heroesService.listHeroes()
-      .subscribe(resp => this.heroes = resp);
-
+      .subscribe(resp => {
+        this.heroes = resp;
+        this.isLoading = false;
+      });
+    
 
   }
 
