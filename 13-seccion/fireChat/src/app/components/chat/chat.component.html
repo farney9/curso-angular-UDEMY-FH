@@ -11,10 +11,10 @@
               <li class="active grey lighten-3 p-2">
                 <a href="#" class="d-flex justify-content-between">
                   <img 
-                  src="https://scontent.feoh1-1.fna.fbcdn.net/v/t1.0-1/p320x320/52523768_2148581561889532_3727248898087976960_o.jpg?_nc_cat=111&ccb=2&_nc_sid=7206a8&_nc_eui2=AeG5gaoEbdHs-ef_WAMTOnhCJsxYuJjUzh8mzFi4mNTOH9iZmr_vePIq8uFxrHn7JTdmHNa8Udl0yAEoDsNNDzcG&_nc_ohc=O6CiUMOet34AX-NUUnH&_nc_ht=scontent.feoh1-1.fna&tp=6&oh=2655539301336f39bc976203e484fcfa&oe=5FC18823" 
+                  src="{{_cs.user.photoUrl}}" 
                   alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
                   <div class="text-small">
-                    <strong>Farney</strong>
+                    <strong>{{_cs.user.name}}</strong>
                     <p class="last-message text-muted">Hello, Are you there?</p>
                   </div>
                   <div class="chat-footer">
@@ -142,7 +142,7 @@
               <li *ngFor="let chat of _cs.chats"
                   class="d-flex justify-content-between mb-4">
                 <img 
-                src="https://scontent.feoh1-1.fna.fbcdn.net/v/t1.0-1/p320x320/52523768_2148581561889532_3727248898087976960_o.jpg?_nc_cat=111&ccb=2&_nc_sid=7206a8&_nc_eui2=AeG5gaoEbdHs-ef_WAMTOnhCJsxYuJjUzh8mzFi4mNTOH9iZmr_vePIq8uFxrHn7JTdmHNa8Udl0yAEoDsNNDzcG&_nc_ohc=O6CiUMOet34AX-NUUnH&_nc_ht=scontent.feoh1-1.fna&tp=6&oh=2655539301336f39bc976203e484fcfa&oe=5FC18823" 
+                src="{{_cs.user.photoUrl}}" 
                 alt="avatar" 
                 class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
                 <div class="chat-body white p-3 ml-2 z-depth-1">
