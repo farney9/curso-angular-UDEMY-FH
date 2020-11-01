@@ -16,15 +16,11 @@ export class ChatService {
   }
   
   uploadMessages(){
-    this.itemsCollection = this.afs.collection<Mensaje>('chats');
+    this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha', 'asc').limitToLast(5));
     return this.itemsCollection.valueChanges().pipe(
       map((mensajes:Mensaje[]) => {
         console.log(mensajes);
-        this.chats = [];
-        for (let mensaje of mensajes) {
-          this.chats.unshift(mensaje);
-        }
-        return this.chats;        
+        this.chats = mensajes;
       })
     )
   }
@@ -34,7 +30,7 @@ export class ChatService {
     let mensaje: Mensaje = {
       nombre :'Demo',
       mensaje: texto,
-      fecha: new Date().getDate()
+      fecha: new Date().getTime()
     }
 
     return this.itemsCollection.add(mensaje)
