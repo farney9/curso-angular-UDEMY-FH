@@ -36,6 +36,7 @@ export class ChatService {
   }
 
   logout() {
+    this.user = {};
     this.auth.signOut();
   }
   
