@@ -3,14 +3,14 @@
     <h1>FireChat</h1>
     <div class="row">
       <div *ngIf="_cs.user.uid" class="col-12">
-          <button 
-              (click)="_cs.logout()"
-              class="btn deep-blue-gradient float-right my-4 rounded-pill hvr-bob">
-              <i class="fas fa-sign-out-alt fa-2x"></i>
-              <span><strong> Logout</strong></span>
-          </button>
+        <button 
+            (click)="_cs.logout()"
+            class="btn deep-blue-gradient float-right my-4 rounded-pill hvr-bob">
+            <i class="fas fa-sign-out-alt fa-2x"></i>
+            <span><strong> Logout</strong></span>
+        </button>
       </div>
-  </div>
+    </div>
 
     <app-login *ngIf="!_cs.user.uid"></app-login>
     <!-- <app-chat></app-chat> -->
