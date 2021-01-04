@@ -18,7 +18,7 @@ export class ChatService {
 
   constructor(private afs: AngularFirestore,
               public auth: AngularFireAuth) { 
-    this.auth.authState.subscribe(usuario=>{
+    this.auth.authState.  subscribe(usuario=>{
       console.log( 'Estado del usuario: ', usuario );
   
       if( !usuario ){
@@ -32,7 +32,11 @@ export class ChatService {
   }
 
   login(provider: string) {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    if (provider === 'google') {
+      this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }else {
+      this.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
+    }
   }
 
   logout() {
@@ -53,9 +57,10 @@ export class ChatService {
   addMessage( texto: string){
     //TODO falta el uid del usuario
     let mensaje: Mensaje = {
-      nombre :'Demo',
+      nombre : this.user.name,
       mensaje: texto,
-      fecha: new Date().getTime()
+      fecha: new Date().getTime(),
+      uid: this.user.uid
     }
 
     return this.itemsCollection.add(mensaje)

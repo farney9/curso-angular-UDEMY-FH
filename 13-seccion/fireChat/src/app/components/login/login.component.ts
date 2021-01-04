@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public _cs: ChatService) { }
+  constructor(public _cs: ChatService,
+              private route: Router) { }
 
   ngOnInit(): void {
   }

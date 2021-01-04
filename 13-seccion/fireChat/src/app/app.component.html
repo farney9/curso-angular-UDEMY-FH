@@ -1,7 +1,8 @@
+<app-navbar></app-navbar>
 <div class="container content">
   <div class="main mt-5">
-    <h1>FireChat</h1>
-    <div class="row">
+    <!-- <h1>FireChat</h1> -->
+    <!-- <div class="row">
       <div *ngIf="_cs.user.uid" class="col-12">
         <button 
             (click)="_cs.logout()"
@@ -10,14 +11,15 @@
             <span><strong> Logout</strong></span>
         </button>
       </div>
-    </div>
-
-    <app-login *ngIf="!_cs.user.uid"></app-login>
+    </div> -->
+    <!-- <app-login *ngIf="!_cs.user.uid"></app-login> -->
+    <!-- <app-chat *ngIf="_cs.user.uid"></app-chat> -->
     <!-- <app-chat></app-chat> -->
-
   </div>
 
+  <router-outlet></router-outlet>
 </div>
+
 
 <!-- <ul>
   <li class="text" *ngFor="let chat of chats | async">

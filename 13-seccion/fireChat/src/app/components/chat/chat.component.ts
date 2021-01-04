@@ -22,9 +22,14 @@ export class ChatComponent implements OnInit {
    }
 
    ngOnInit(){
-    this.elemento = document.getElementById('app-mensajes')
+      this.elemento = document.getElementById('app-mensajes')
+    //  if (this._cs.user.uid)  {
+    //    console.log(this._cs.user.uid);
+    //    this.elemento = document.getElementById('app-mensajes')
+    //  } 
 
    }
+   
 
   sendMessage(){
     console.log(this.mensaje);
@@ -33,7 +38,7 @@ export class ChatComponent implements OnInit {
       return;
     }
     this._cs.addMessage(this.mensaje)
-            .then(() => this.mensaje="")
+            .then(() => this.mensaje="")  
             .catch((err) => console.error('Error al enviar', err));
   }
 

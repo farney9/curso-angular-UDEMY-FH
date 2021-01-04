@@ -1,5 +1,5 @@
 
-    <div class="row mb-5">
+    <div *ngIf="!_cs.user.uid" class="row mb-5">
         <div class="col-md-6 offset-3">
             <div class="card animate__animated animate__bounceIn">
                 <h5 class="card-header blue-gradient white-text text-center py-4">
@@ -45,3 +45,5 @@
             </div>
         </div>
     </div>
+
+    <app-chat *ngIf="_cs.user.uid"></app-chat>
