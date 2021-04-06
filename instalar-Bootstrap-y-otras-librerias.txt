@@ -1,0 +1,108 @@
+Instalación MDBootstrap
+===========================
+npm install --save mdbootstrap
+
+Edición de style.css
+====================
+@import '~mdbootstrap/css/mdb.css';
+@import "~hover.css/css/hover-min.css";
+@import "~animate.css/animate.css";
+
+Edición de angular.json
+====================
+
+            "styles": [
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/mdbootstrap/css/mdb.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/mdbootstrap/js/mdb.min.js"
+            ]           
+
+
+
+
+
+Instalación Bootstrap
+===========================
+
+npm install --save jquery
+npm install --save bootstrap
+npm install --save popper.js
+npm install --save @fortawesome/fontawesome-free
+
+
+Animate css
+
+===============
+
+npm install --save animate.css
+
+
+hover.css
+=============================
+npm install hover.css --save
+
+
+Edición de angular.json
+====================
+
+            "styles": [
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"                 
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"             
+            ]
+
+Edición de style.css
+====================
+@import '~hover.css/css/hover-min.css';
+@import '~animate.css/animate.css';
+
+.rounded-top-left-1 {
+    border-top-left-radius: 1rem;
+}
+.rounded-top-right-1 {
+    border-top-right-radius: 1rem;
+}
+.rounded-bottom-left-1 {
+    border-bottom-left-radius: 1rem;
+}
+.rounded-bottom-right-1 {
+    border-bottom-right-radius: 1rem;
+}
+
+.rounded-top-left-3 {
+    border-top-left-radius: 3rem;
+}
+.rounded-top-right-3 {
+    border-top-right-radius: 3rem;
+}
+.rounded-bottom-left-3 {
+    border-bottom-left-radius: 3rem;
+}
+.rounded-bottom-right-3 {
+    border-bottom-right-radius: 3rem;
+}
+
+
+Instalación sweetalert2
+===========================
+npm install sweetalert2
+
+USAGE
+
+
+1 . En el componente hacer la importación
+
+import Swal from 'sweetalert2'
+
