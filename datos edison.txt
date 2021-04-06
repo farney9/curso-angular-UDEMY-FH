@@ -1,0 +1,15 @@
+--skipTests=true --inline-style=true 
+
+--type=model
+
+4/1AY0e-g42YeZGZ5ecahc4MeGJq3Pp3VFDDDe6NpR_TPRS-f3HjytlQt1aHDA
+
+Edisson Alexander Uribe
+
+Castaño
+
+2NB144203296
+
+ng add angular-cli-ghpages
+ng deploy --base-href=https://farney9.github.io/spotyapp/
+
