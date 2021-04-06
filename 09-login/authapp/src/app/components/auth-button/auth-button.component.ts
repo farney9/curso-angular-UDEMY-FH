@@ -9,7 +9,7 @@ import { AuthService } from '@auth0/auth0-angular';
       <button (click)="auth.logout({ returnTo: document.location.origin })" class="btn btn-outline-danger" type="button">
         Log out
       </button>
-    </ng-container>
+  </ng-container>
 
     <ng-template #loggedIn>
       <button (click)="auth.loginWithRedirect()" class="btn btn-outline-primary" type="button">Log in</button>
