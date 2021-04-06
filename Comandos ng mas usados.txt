@@ -1,0 +1,18 @@
+Crear un componente
+===================
+
+ng generate componente nombreComponente
+
+
+Componente sin archivo de pruebas y sin archivo css
+==================================================
+
+ng g c nombreComponente --inlineStyle=true --skipTests=true --flat=true --inlineTemplate=true 
+
+
+farney9@gmail.com
+farney9@yopmail.com
+%%Fjim4487
+
+https://fernando-herrera.com/otros/material-peliculas.zip
+
