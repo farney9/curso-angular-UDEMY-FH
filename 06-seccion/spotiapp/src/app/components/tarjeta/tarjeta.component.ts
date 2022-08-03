@@ -26,7 +26,7 @@ export class TarjetaComponent {
       artistId = item.artist[0].id;
     }
     
-    // console.log(artistId);
+    console.log(artistId);
     this.router.navigate(['/artist', artistId])
   }
 
