@@ -27,7 +27,6 @@ Edición de angular.json
 
 
 
-
 Instalación Bootstrap
 ===========================
 

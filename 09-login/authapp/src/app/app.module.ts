@@ -9,7 +9,7 @@ import { PreciosComponent } from './components/precios/precios.component';
 import { ProtegidaComponent } from './components/protegida/protegida.component';
 
 // Import the module from the SDK
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule } from "@auth0/auth0-angular";
 import { AuthButtonComponent } from './components/auth-button/auth-button.component';
 
 @NgModule({
